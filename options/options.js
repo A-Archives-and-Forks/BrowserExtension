@@ -162,7 +162,7 @@
 
 	function HideButtonIfAllPermissionsGranted()
 	{
-		ExtensionApi.permissions.contains( permissions, ( result ) =>
+		ExtensionApi.permissions.contains( permissions ).then( ( result ) =>
 		{
 			document.getElementById( 'permissions' ).hidden = result;
 			document.getElementById( 'star' ).hidden = starDismissed || !result;
