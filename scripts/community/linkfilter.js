@@ -1,21 +1,24 @@
 'use strict';
 
-GetOption( { 'enhancement-no-linkfilter': false }, ( items ) =>
+setTimeout( () =>
 {
-	if( items[ 'enhancement-no-linkfilter' ] )
+	GetOption( { 'enhancement-no-linkfilter': false }, ( items ) =>
 	{
-		if( window.location && window.location.search )
+		if( items[ 'enhancement-no-linkfilter' ] )
 		{
-			const params = new URLSearchParams( window.location.search );
+			if( window.location && window.location.search )
+			{
+				const params = new URLSearchParams( window.location.search );
 
-			if( params.has( 'u' ) )
-			{
-				window.location.replace( params.get( 'u' ) );
-			}
-			else if( params.has( 'url' ) )
-			{
-				window.location.replace( params.get( 'url' ) );
+				if( params.has( 'u' ) )
+				{
+					window.location.replace( params.get( 'u' ) );
+				}
+				else if( params.has( 'url' ) )
+				{
+					window.location.replace( params.get( 'url' ) );
+				}
 			}
 		}
-	}
-} );
+	} );
+}, 0 );

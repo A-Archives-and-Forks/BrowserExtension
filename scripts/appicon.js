@@ -1,56 +1,59 @@
 'use strict';
 
-GetOption( {
-	'enhancement-appicon': true,
-}, ( items ) =>
+setTimeout( () =>
 {
-	if( items[ 'enhancement-appicon' ] )
+	GetOption( {
+		'enhancement-appicon': true,
+	}, ( items ) =>
 	{
-		let styleAdded = false;
-		const style = document.createElement( 'link' );
-		style.id = 'steamdb_appicon';
-		style.type = 'text/css';
-		style.rel = 'stylesheet';
-		style.href = GetLocalResource( 'styles/appicon.css' );
-
-		if( document.head )
+		if( items[ 'enhancement-appicon' ] )
 		{
-			styleAdded = true;
-			document.head.appendChild( style );
-		}
+			let styleAdded = false;
+			const style = document.createElement( 'link' );
+			style.id = 'steamdb_appicon';
+			style.type = 'text/css';
+			style.rel = 'stylesheet';
+			style.href = GetLocalResource( 'styles/appicon.css' );
 
-		window.addEventListener( 'DOMContentLoaded', () =>
-		{
-			if( !styleAdded )
+			if( document.head )
 			{
+				styleAdded = true;
 				document.head.appendChild( style );
 			}
 
-			/** @type {HTMLImageElement} */
-			const icon = document.querySelector( '.apphub_AppIcon > img' );
-
-			if( !icon )
+			window.addEventListener( 'DOMContentLoaded', () =>
 			{
-				return;
-			}
+				if( !styleAdded )
+				{
+					document.head.appendChild( style );
+				}
 
-			const src = icon.getAttribute( 'src' );
+				/** @type {HTMLImageElement} */
+				const icon = document.querySelector( '.apphub_AppIcon > img' );
 
-			if( !src.includes( '%CDN_HOST_MEDIA_SSL%' ) )
-			{
-				return;
-			}
+				if( !icon )
+				{
+					return;
+				}
 
-			const applicationConfigElement = document.getElementById( 'application_config' );
+				const src = icon.getAttribute( 'src' );
 
-			if( !applicationConfigElement )
-			{
-				return;
-			}
+				if( !src.includes( '%CDN_HOST_MEDIA_SSL%' ) )
+				{
+					return;
+				}
 
-			const applicationConfig = JSON.parse( applicationConfigElement.dataset.config );
+				const applicationConfigElement = document.getElementById( 'application_config' );
 
-			icon.src = src.replace( 'https://%CDN_HOST_MEDIA_SSL%/', applicationConfig.MEDIA_CDN_URL );
-		} );
-	}
-} );
+				if( !applicationConfigElement )
+				{
+					return;
+				}
+
+				const applicationConfig = JSON.parse( applicationConfigElement.dataset.config );
+
+				icon.src = src.replace( 'https://%CDN_HOST_MEDIA_SSL%/', applicationConfig.MEDIA_CDN_URL );
+			} );
+		}
+	} );
+}, 0 );
