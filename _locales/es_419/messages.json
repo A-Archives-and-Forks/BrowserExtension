@@ -312,7 +312,7 @@
 		}
 	},
 	"inventory_orders_to_buy": {
-		"message": "$count$ pedidos de compra a $price$ o menos",
+		"message": "$count$ pedido(s) de compra a $price$ o menos",
 		"placeholders": {
 			"count": {
 				"content": "%count%",
@@ -410,7 +410,7 @@
 		"message": "¡Es de <a href=\"https://github.com/SteamDatabase/BrowserExtension\" target=\"_blank\">código abierto</a>, gracias a los contribuidores!"
 	},
 	"options_disabled_checkboxes": {
-		"message": "* Las casillas marcadas en gris indican las funciones integradas."
+		"message": "* Las casillas marcadas en gris son características activadas de forma predeterminada."
 	},
 	"options_header_website": {
 		"message": "Sitio web de SteamDB"

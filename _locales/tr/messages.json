@@ -299,7 +299,7 @@
 		"message": "Birden fazla öğe sat"
 	},
 	"inventory_orders_for_sale": {
-		"message": "$price$ fiyatından başlayan $count$ ilan var",
+		"message": "$price$ fiyatından başlayan $count$ satış ilanı",
 		"placeholders": {
 			"count": {
 				"content": "%count%",
@@ -312,7 +312,7 @@
 		}
 	},
 	"inventory_orders_to_buy": {
-		"message": "$price$ ya da daha düşük fiyata $count$ satın alma talimatı var",
+		"message": "$price$ ve altında yapılan satın alma talep sayısı: $count$",
 		"placeholders": {
 			"count": {
 				"content": "%count%",
@@ -325,7 +325,7 @@
 		}
 	},
 	"inventory_orders_or_more": {
-		"message": "$price$ veya daha fazla",
+		"message": "$price$ ve üzeri",
 		"placeholders": {
 			"price": {
 				"content": "%price%",
@@ -619,7 +619,7 @@
 		"description": "\"Install Steam\" should match what the button on Steam itself in the header says: https://store.steampowered.com/"
 	},
 	"options_enhancement_open_desktop_app_button": {
-		"message": "Üst bilgiye “$open_desktop_app$” butonu ekle",
+		"message": "Başlığa \"$open_desktop_app$\" butonu ekle",
 		"placeholders": {
 			"open_desktop_app": {
 				"content": "$1",
