@@ -4,7 +4,10 @@ setTimeout( () =>
 {
 	GetOption( { 'link-accountpage': true }, ( items ) =>
 	{
-		const addLinks = items[ 'link-accountpage' ];
+		if( !items[ 'link-accountpage' ] )
+		{
+			return;
+		}
 
 		if( document.readyState === 'loading' )
 		{
@@ -19,9 +22,8 @@ setTimeout( () =>
 		{
 			const table = document.querySelector( '.account_table' );
 
-			if( !addLinks || !table )
+			if( !table )
 			{
-				document.body.classList.add( 'steamdb_account_table_loaded' );
 				return;
 			}
 
@@ -80,8 +82,6 @@ setTimeout( () =>
 					nameCell.after( newTd );
 				}
 			}
-
-			document.body.classList.add( 'steamdb_account_table_loaded' );
 		}
 	} );
 }, 0 );

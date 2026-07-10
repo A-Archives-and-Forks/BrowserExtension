@@ -226,18 +226,6 @@
 			]
 		},
 		{
-			"run_at": "document_start",
-			"world": "MAIN",
-			"matches":
-			[
-				"https://store.steampowered.com/account/licenses*"
-			],
-			"js":
-			[
-				"scripts/store/account_licenses_injected.js"
-			]
-		},
-		{
 			"run_at": "document_end",
 			"matches":
 			[
