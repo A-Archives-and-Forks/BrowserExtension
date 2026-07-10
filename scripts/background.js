@@ -13,7 +13,7 @@ let userFamilyDataCache = null;
 let userFamilySemaphore = null;
 let nextAllowedRequest = 0;
 
-/** @type {chrome|browser} ExtensionApi */
+/** @type {typeof chrome|typeof browser} ExtensionApi */
 const ExtensionApi = ( () =>
 {
 	if( typeof browser !== 'undefined' && typeof browser.storage !== 'undefined' )
