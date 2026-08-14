@@ -19,7 +19,7 @@
 		"@types/chrome": "^0.2.2",
 		"@types/firefox-webext-browser": "^143.0.0",
 		"eslint": "^10.4.0",
-		"eslint-plugin-jsdoc": "^63.0.12",
+		"eslint-plugin-jsdoc": "^64.1.0",
 		"prettier": "^3.3.2",
 		"stylelint": "^17.11.1",
 		"stylelint-config-standard": "^40.0.0",
