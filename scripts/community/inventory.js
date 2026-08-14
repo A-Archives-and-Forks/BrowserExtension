@@ -306,6 +306,9 @@
 			} )
 			.then( ( response ) =>
 			{
+				// Response is wrapped in an extra data object, but fallback to unwrapped response
+				response = response?.data?.success ? response.data : response;
+
 				if( !response || !response.success || !response.data )
 				{
 					return;
