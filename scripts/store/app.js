@@ -306,13 +306,13 @@ else
 
 		if( items[ 'steamdb-rating' ] )
 		{
-			const positiveVoteText = document.querySelector( 'label[for="review_type_positive"] .user_reviews_count' );
-			const negativeVoteText = document.querySelector( 'label[for="review_type_negative"] .user_reviews_count' );
+			const reviewsElement = /** @type {HTMLElement|null} */ ( document.querySelector( 'div[data-featuretarget="appreviews"]' ) );
+			const filterOptions = reviewsElement?.dataset?.props ? JSON.parse( reviewsElement.dataset.props ).filter_options : null;
 
-			if( positiveVoteText && negativeVoteText )
+			if( filterOptions && filterOptions.nReviewsPositive + filterOptions.nReviewsNegative > 0 )
 			{
-				const positiveVotes = Number.parseInt( positiveVoteText.textContent.replace( /[(.,\s)]/g, '' ), 10 );
-				const totalVotes = positiveVotes + Number.parseInt( negativeVoteText.textContent.replace( /[(.,\s)]/g, '' ), 10 );
+				const positiveVotes = filterOptions.nReviewsPositive;
+				const totalVotes = positiveVotes + filterOptions.nReviewsNegative;
 				const average = positiveVotes / totalVotes;
 				const score = average - ( average - 0.5 ) * ( 2 ** -Math.log10( totalVotes + 1 ) );
 
